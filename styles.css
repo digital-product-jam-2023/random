@@ -5,8 +5,6 @@
     "Helvetica",
     "Arial",
     sans-serif;
-  --deep-blue: rgb(49, 11, 218);
-  --deep-red: rgb(239, 6, 72);
   --white: #fbfafa;
   --charcoal: rgb(45, 43, 43);
   --layout-guide-item: rgba(255, 89, 0, 0.975);
@@ -52,17 +50,36 @@
   padding: 10px;
 }
 
+.item.students {
+  flex-basis: 50%;
+}
+
+.selected {
+  color: blueviolet;
+}
+
+.assigned {
+  color: gainsboro;
+}
+
+.hide {
+  display: none;
+}
+
+.team {
+  background-color: azure;
+  margin-bottom: 24px;
+}
+
+.concept {
+  font-weight: 700;
+}
+
 /* adjustments for medium screens, like some tablets or landscape on a mobile */
 @media (min-width: 576px) {}
 
 /* adjustments for medium-large screens, like some tablets */
-@media (min-width: 768px) {
-
-  .item.navbar-logo,
-  .item.navbar-menu {
-    flex-basis: 50%;
-  }
-}
+@media (min-width: 768px) {}
 
 /* adjustments for large screens, like laptops and desktops */
 @media (min-width: 992px) {
@@ -78,81 +95,4 @@ body {
   margin: 0;
   padding: 0;
   color: var(--charcoal);
-}
-
-a {
-  color: var(--deep-blue);
-}
-
-input,
-textarea,
-button,
-select {
-  display: block;
-  height: 2rem;
-  width: 100%;
-  margin: 0;
-  padding: 0.25rem;
-  border: 1px solid var(--charcoal);
-}
-
-textarea {
-  height: 4rem;
-}
-
-button {
-  height: 2.5rem;
-}
-
-form>* {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  box-sizing: border-box;
-  font-family: var(--font-family);
-}
-
-#navbar {
-  display: flex;
-  background-color: var(--deep-blue);
-  color: var(--white);
-  border-bottom: 4px solid var(--deep-red);
-}
-
-#navbar a {
-  color: var(--white);
-}
-
-.navbar-items {
-  justify-content: space-between;
-}
-
-.navbar-menu ul {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0;
-  list-style-type: none;
-}
-
-.navbar-menu li {
-  margin: 0 0.5rem;
-}
-
-.navbar-logo {
-  display: flex;
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.navbar-logo a {
-  color: var(--white);
-  text-decoration: none;
-}
-
-#footer {
-  display: flex;
-  margin-top: auto;
-  background-color: var(--deep-blue);
-  color: var(--white);
-  height: 200px;
-  border-top: 4px solid var(--deep-red);
 }

@@ -1,3 +1,12 @@
+
+TODO:
+
+- session management
+- save teams
+- logic for team allocation
+- move to contextprovider instead of props drilling with useState
+
+
 # Template: Framework
 
 This project implements a starting point for a Next.js-based project. You need to have Node v16 available.
