@@ -1,5 +1,5 @@
+import SessionAction from "../partials/session-action";
 import TeamList from "../partials/team-list";
-import SessionAction from "../session-action";
 
 export default function ShowTeams({ session, data, teams, stateDescriptor, transitionToStateFn }) {
 

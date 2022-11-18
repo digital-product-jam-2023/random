@@ -1,4 +1,4 @@
-import SessionAction from "../session-action";
+import SessionAction from "../partials/session-action";
 
 export default function Start({ session, data, teams, stateDescriptor, transitionToStateFn }) {
 

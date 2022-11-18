@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { selectStudents } from "../../helpers";
+import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
-import SessionAction from "../session-action";
 
 export default function Students({ session, data, teams, assigned, stateDescriptor, transitionToStateFn, selected, setSelected }) {
 

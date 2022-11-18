@@ -1,7 +1,7 @@
 import { makeConcept } from "../../helpers";
 import ConceptSentence from "../partials/concept-sentence";
+import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
-import SessionAction from "../session-action";
 
 export default function SelectConcept({ session, data, teams, setTeams, assigned, setAssigned, selected, setSelected, stateDescriptor, transitionToStateFn }) {
 

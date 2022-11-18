@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import Message from "../components/message";
+import Message from "../components/partials/message";
 import { getCurrentComponent } from "../helpers";
 import { useData, useSession } from "../hooks/data";
 

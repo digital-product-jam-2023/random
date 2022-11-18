@@ -1,5 +1,5 @@
+import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
-import SessionAction from "../session-action";
 
 export default function ShowStudents({ session, data, teams, selected, assigned, stateDescriptor, transitionToStateFn }) {
 
