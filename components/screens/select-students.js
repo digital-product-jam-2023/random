@@ -13,10 +13,11 @@ export default function Students({ session, data, teams, assignedStudents, state
       // TODO: Animation logic
       console.log('Do our animation ...')
 
-      setCurrentTeamMembers(selectStudents(data.students, assignedStudents));
+      const teamDistribution = data.distribution[teams.length];
+      setCurrentTeamMembers(selectStudents(data.students, assignedStudents, teamDistribution));
       setActionDisabled(false);
     }, 3000);
-  }, [data.students, assignedStudents, setCurrentTeamMembers]);
+  }, [data.students, data.distribution, assignedStudents, teams, setCurrentTeamMembers]);
 
   function actionHandler(event) {
     event.preventDefault();

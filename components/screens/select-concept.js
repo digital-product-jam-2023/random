@@ -6,16 +6,15 @@ import StudentList from "../partials/student-list";
 export default function SelectConcept({ session, data, teams, setTeams, assignedStudents, setAssignedStudents, currentTeamMembers, setCurrentTeamMembers, stateDescriptor, transitionToStateFn }) {
 
   const concept = makeConcept(data.prompt_companies, data.prompt_ideas);
+  const isLastTeam = teams.length === data.distribution.length - 1;
+  const nextState = isLastTeam ? 4 : stateDescriptor.next;
 
   function actionHandler(event) {
     event.preventDefault();
     setTeams([...teams, { students: currentTeamMembers, concept }]);
     setAssignedStudents([...assignedStudents, ...currentTeamMembers]);
     setCurrentTeamMembers([]);
-
-    // TODO: if all students allocated, then, move to final location which is 4
-    // transitionToStateFn(4);
-    transitionToStateFn(stateDescriptor.next);
+    transitionToStateFn(nextState);
   }
 
   return (

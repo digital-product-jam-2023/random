@@ -3,7 +3,6 @@ TODO:
 
 - session management
 - save teams
-- logic for team allocation
 - move to contextprovider instead of props drilling with useState
 
 
