@@ -1,4 +1,4 @@
-import { Head, Html, Main, NextScript } from "next/document"
+import { Head, Html, Main, NextScript } from "next/document";
 
 // You shouldn't need to touch this file, unless you have specific reasons to
 // modify the HTML outside of our app. What we have here is just the Next.js default
@@ -10,7 +10,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Noto+Serif+Hebrew:wght@900&display=swap"
           rel="stylesheet"
         />
       </Head>
