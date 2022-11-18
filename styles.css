@@ -24,7 +24,8 @@
 
 .container {
   width: 100%;
-  margin: 0 auto;
+  display: flex;
+  background-color: aqua;
 }
 
 .row {
@@ -43,6 +44,7 @@
   flex-basis: 100%;
   box-sizing: border-box;
   padding: 10px;
+  font-size: 50px;
 }
 
 .action {
@@ -59,15 +61,15 @@
 }
 
 #Show-students {
-  /*TODO: centet vertically Show student action*/
   bottom: 45%;
 }
 .item.students {
   flex-basis: 50%;
 }
 
-.group-name {
-  font-size: 17px;
+.group-title {
+  font-size: 12px;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .current-team-member {
@@ -92,19 +94,20 @@
 }
 
 /* adjustments for medium screens, like some tablets or landscape on a mobile */
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+}
 
 /* adjustments for medium-large screens, like some tablets */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 /* adjustments for large screens, like laptops and desktops */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .container {
     width: 992px;
     margin: 0 auto;
   }
-
-}
+} */
 
 body {
   font-family: var(--font-family);
