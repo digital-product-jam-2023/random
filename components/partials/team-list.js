@@ -8,7 +8,7 @@ export default function TeamList({ teams, students, groups }) {
       {teams.map((team, idx) => {
         return (
           <div key={idx} className="team">
-            <StudentList students={students.filter(s => team.students.includes(s.id))} groups={groups} selected={[]} assigned={[]} />
+            <StudentList students={students.filter(s => team.students.includes(s.id))} groups={groups} currentTeamMembers={[]} assignedStudents={[]} />
             <ConceptSentence concept={team.concept} />
           </div>
         )

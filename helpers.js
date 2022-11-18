@@ -7,15 +7,14 @@ import { STATE_DESCRIPTORS } from "./config";
 
 const randomSorter = () => 0.5 - Math.random();
 
-
-function selectDesigners(ids, assigned) {
+function selectDesigners(ids, assignedStudents) {
   // TODO: we will need custom select logic that is designer specific
-  return ids.filter(id => !assigned.includes(id)).sort(randomSorter).slice(0, 2);
+  return ids.filter(id => !assignedStudents.includes(id)).sort(randomSorter).slice(0, 2);
 }
 
-function selectDevelopers(ids, assigned) {
+function selectDevelopers(ids, assignedStudents) {
   // TODO: we will need custom select logic that is developer specific
-  return ids.filter(id => !assigned.includes(id)).sort(randomSorter).slice(0, 2);
+  return ids.filter(id => !assignedStudents.includes(id)).sort(randomSorter).slice(0, 2);
 }
 
 export function makeConcept(companies, ideas) {
@@ -32,30 +31,30 @@ function groupStudentIds(students) {
   }, new Map());
 }
 
-export function selectStudents(students, assigned) {
+export function selectStudents(students, assignedStudents) {
   const groupedStudentIds = groupStudentIds(students);
-  return [...selectDevelopers(groupedStudentIds.get(1), assigned), ...selectDesigners(groupedStudentIds.get(2), assigned)]
+  return [...selectDevelopers(groupedStudentIds.get(1), assignedStudents), ...selectDesigners(groupedStudentIds.get(2), assignedStudents)]
 }
 
-export function getCurrentComponent(currentStateId, session, data, teams, setTeams, assigned, setAssigned, selected, setSelected, transitionToStateFn) {
+export function getCurrentComponent(currentStateId, session, data, teams, setTeams, assignedStudents, setAssignedStudents, currentTeamMembers, setCurrentTeamMembers, transitionToStateFn) {
 
   const stateDescriptor = STATE_DESCRIPTORS[currentStateId];
 
   switch (currentStateId) {
     case 0: {
-      return <Start session={session} data={data} teams={teams} setTeams={setTeams} assigned={assigned} setAssigned={setAssigned} selected={selected} setSelected={setSelected} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />;
+      return <Start session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />;
     }
     case 1: {
-      return <ShowStudents session={session} data={data} teams={teams} setTeams={setTeams} assigned={assigned} setAssigned={setAssigned} selected={selected} setSelected={setSelected} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <ShowStudents session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
     }
     case 2: {
-      return <SelectStudents session={session} data={data} teams={teams} setTeams={setTeams} assigned={assigned} setAssigned={setAssigned} selected={selected} setSelected={setSelected} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <SelectStudents session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
     }
     case 3: {
-      return <SelectConcept session={session} data={data} teams={teams} setTeams={setTeams} assigned={assigned} setAssigned={setAssigned} selected={selected} setSelected={setSelected} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <SelectConcept session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
     }
     case 4: {
-      return <ShowTeams session={session} data={data} teams={teams} setTeams={setTeams} assigned={assigned} setAssigned={setAssigned} selected={selected} setSelected={setSelected} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <ShowTeams session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
     }
     default: {
       return <Message content="Something went wrong. Reload the application to start again." />;

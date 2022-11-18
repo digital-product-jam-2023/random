@@ -3,7 +3,7 @@ import { selectStudents } from "../../helpers";
 import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
 
-export default function Students({ session, data, teams, assigned, stateDescriptor, transitionToStateFn, selected, setSelected }) {
+export default function Students({ session, data, teams, assignedStudents, stateDescriptor, transitionToStateFn, currentTeamMembers, setCurrentTeamMembers }) {
 
   const [actionDisabled, setActionDisabled] = useState(stateDescriptor.action.disabled);
 
@@ -13,10 +13,10 @@ export default function Students({ session, data, teams, assigned, stateDescript
       // TODO: Animation logic
       console.log('Do our animation ...')
 
-      setSelected(selectStudents(data.students, assigned));
+      setCurrentTeamMembers(selectStudents(data.students, assignedStudents));
       setActionDisabled(false);
     }, 3000);
-  }, [data.students, assigned, setSelected]);
+  }, [data.students, assignedStudents, setCurrentTeamMembers]);
 
   function actionHandler(event) {
     event.preventDefault();
@@ -25,7 +25,7 @@ export default function Students({ session, data, teams, assigned, stateDescript
 
   return (
     <>
-      <StudentList groups={data.groups} students={data.students} selected={selected} assigned={assigned} />
+      <StudentList groups={data.groups} students={data.students} currentTeamMembers={currentTeamMembers} assignedStudents={assignedStudents} />
       <SessionAction handler={actionHandler} id={stateDescriptor.action.id} text={stateDescriptor.action.text} disabled={actionDisabled} />
     </>
   )

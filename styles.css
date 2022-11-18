@@ -54,11 +54,11 @@
   flex-basis: 50%;
 }
 
-.selected {
+.current-team-member {
   color: blueviolet;
 }
 
-.assigned {
+.assigned-student {
   color: gainsboro;
 }
 

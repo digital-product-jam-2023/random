@@ -11,12 +11,12 @@ export default function IndexPage() {
   const { data, isLoading: dataLoading, isError: dataError } = useData();
   const { data: session, isLoading: sessionLoading, isError: sessionError } = useSession();
   const [teams, setTeams] = useState([]);
-  const [assigned, setAssigned] = useState([]);
-  const [selected, setSelected] = useState([]);
+  const [assignedStudents, setAssignedStudents] = useState([]);
+  const [currentTeamMembers, setCurrentTeamMembers] = useState([]);
 
   if (dataLoading) return <Message content="Loading..." />
   if (dataError) return <Message content="An error occured..." />
   if (!data) return <Message content="No data could be loaded..." />
 
-  return getCurrentComponent(currentStateId, session, data, teams, setTeams, assigned, setAssigned, selected, setSelected, transitionToStateFn);
+  return getCurrentComponent(currentStateId, session, data, teams, setTeams, assignedStudents, setAssignedStudents, currentTeamMembers, setCurrentTeamMembers, transitionToStateFn);
 }
