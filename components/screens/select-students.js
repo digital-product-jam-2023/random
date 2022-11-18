@@ -16,7 +16,7 @@ export default function Students({ session, data, teams, assigned, stateDescript
       setSelected(selectStudents(data.students, assigned));
       setActionDisabled(false);
     }, 3000);
-  }, [data.students]);
+  }, [data.students, assigned, setSelected]);
 
   function actionHandler(event) {
     event.preventDefault();
