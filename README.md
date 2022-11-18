@@ -1,14 +1,11 @@
+# Random
 
-TODO:
+A random team generator - builds teams of developers and designers and gives each team a product concept to work on.
 
-- session management
-- save teams
-- move to contextprovider instead of props drilling with useState
+# MVP scope
 
-
-# Template: Framework
-
-This project implements a starting point for a Next.js-based project. You need to have Node v16 available.
+- [Product Deck](https://docs.google.com/presentation/d/1DOHk4-MsE-3jX35WPPSmoHjlAXb04E9WPJKtmZzFKs8/edit#slide=id.g18e2308815e_0_0) with product requirements, wireframes, etc.
+- [Issue Tracker](https://github.com/digital-product-jam/random/milestone/1) with technical tasks to implement the MVP
 
 # Install Dependencies
 
@@ -26,10 +23,10 @@ npm run dev
 
 # View in browser
 
-With the server running you can open your browser and type the server URL into the address bar:
+With the server running you can open your browser and type the server URL into the address bar (if you already have a process running on port 3000, the server will find a different port - check your console when you run the server):
 
 ```
-http://127.0.0.1:8080
+http://127.0.0.1:3000
 ```
 
 # Other scripts
