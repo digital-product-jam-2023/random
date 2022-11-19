@@ -3,9 +3,11 @@ export default function ConceptSentence({ concept }) {
     <div className="row">
       <div className="item">
         <div className="content concept">
-          Like <span>{concept.name}</span> for <span>{concept.idea}</span>
+          Like <span>{concept.name}</span>
+          <br />
+          for <span>{concept.idea}</span>
         </div>
       </div>
     </div>
-  )
+  );
 }

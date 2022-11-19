@@ -3,12 +3,21 @@ import ConceptSentence from "../partials/concept-sentence";
 import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
 
-export default function SelectConcept({ session, data, teams, setTeams, assignedStudents, setAssignedStudents, currentTeamMembers, setCurrentTeamMembers, stateDescriptor, transitionToStateFn }) {
-
+export default function SelectConcept({
+  session,
+  data,
+  teams,
+  setTeams,
+  assignedStudents,
+  setAssignedStudents,
+  currentTeamMembers,
+  setCurrentTeamMembers,
+  stateDescriptor,
+  transitionToStateFn,
+}) {
   const concept = makeConcept(data.prompt_companies, data.prompt_ideas);
 
-  function actionHandler(event) {
-    event.preventDefault();
+  function actionHandler() {
     setTeams([...teams, { students: currentTeamMembers, concept }]);
     setAssignedStudents([...assignedStudents, ...currentTeamMembers]);
     setCurrentTeamMembers([]);
@@ -20,11 +29,22 @@ export default function SelectConcept({ session, data, teams, setTeams, assigned
 
   return (
     <>
-      <StudentList groups={data.groups} students={data.students} currentTeamMembers={currentTeamMembers} assignedStudents={assignedStudents} />
-      <div className="row">
+      <div className="team">
+        <StudentList
+          groups={data.groups}
+          students={data.students}
+          currentTeamMembers={currentTeamMembers}
+          assignedStudents={assignedStudents}
+        />
+
         <ConceptSentence concept={concept} />
       </div>
-      <SessionAction handler={actionHandler} id={stateDescriptor.action.id} text={stateDescriptor.action.text} disabled={stateDescriptor.action.disabled} />
+      <SessionAction
+        handler={actionHandler}
+        id={stateDescriptor.action.id}
+        text={stateDescriptor.action.text}
+        disabled={stateDescriptor.action.disabled}
+      />
     </>
-  )
+  );
 }
