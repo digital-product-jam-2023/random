@@ -5,8 +5,6 @@ import ShowTeams from "./components/screens/show-teams";
 import Start from "./components/screens/start";
 import { STATE_DESCRIPTORS } from "./config";
 
-const randomSorter = () => 0.5 - Math.random();
-
 // https://sebhastian.com/fisher-yates-shuffle-javascript/
 function shuffle(arr) {
   let i = arr.length;
@@ -49,8 +47,8 @@ function selectDevelopers(ids, quantity, assignedStudents) {
 }
 
 export function makeConcept(companies, ideas) {
-  const name = companies.map(c => c.name).sort(randomSorter).pop();
-  const idea = ideas.map(i => i.description).sort(randomSorter).pop();
+  const name = shuffle(companies.map(c => c.name)).pop();
+  const idea = shuffle(ideas.map(i => i.description)).pop();
   return { name, idea };
 }
 
