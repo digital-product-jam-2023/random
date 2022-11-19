@@ -3,31 +3,65 @@ import { selectStudents } from "../../helpers";
 import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
 
-export default function Students({ session, data, teams, assignedStudents, stateDescriptor, transitionToStateFn, currentTeamMembers, setCurrentTeamMembers }) {
-
-  const [actionDisabled, setActionDisabled] = useState(stateDescriptor.action.disabled);
+export default function Students({
+  session,
+  data,
+  teams,
+  assignedStudents,
+  stateDescriptor,
+  transitionToStateFn,
+  currentTeamMembers,
+  setCurrentTeamMembers,
+}) {
+  const [actionDisabled, setActionDisabled] = useState(
+    stateDescriptor.action.disabled
+  );
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
+    setIsRunning(true);
     setTimeout(() => {
 
       // TODO: Animation logic
-      console.log('Do our animation ...')
+      console.log("Do our animation ...");
 
+      setIsRunning(false);
       const teamDistribution = data.distribution[teams.length];
       setCurrentTeamMembers(selectStudents(data.students, assignedStudents, teamDistribution));
       setActionDisabled(false);
     }, 3000);
   }, [data.students, data.distribution, assignedStudents, teams, setCurrentTeamMembers]);
 
-  function actionHandler(event) {
-    event.preventDefault();
+  function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
   }
 
   return (
     <>
-      <StudentList groups={data.groups} students={data.students} currentTeamMembers={currentTeamMembers} assignedStudents={assignedStudents} />
-      <SessionAction handler={actionHandler} id={stateDescriptor.action.id} text={stateDescriptor.action.text} disabled={actionDisabled} />
+      <StudentList
+        groups={data.groups}
+        students={data.students}
+        currentTeamMembers={currentTeamMembers}
+        assignedStudents={assignedStudents}
+        showAnimation={isRunning}
+      />
+      {isRunning && (
+        <StudentList
+          groups={data.groups}
+          students={data.students}
+          currentTeamMembers={currentTeamMembers}
+          assignedStudents={assignedStudents}
+          isReplica={true}
+          showAnimation={isRunning}
+        />
+      )}
+
+      <SessionAction
+        handler={actionHandler}
+        id={stateDescriptor.action.id}
+        text={stateDescriptor.action.text}
+        disabled={actionDisabled}
+      />
     </>
-  )
+  );
 }

@@ -4,39 +4,65 @@
   --charcoal: rgb(45, 43, 43);
   --layout-guide-item: rgba(255, 89, 0, 0.975);
   --layout-guide-content: rgb(0, 183, 255);
+  --bg: black;
 }
 
 /* start design helpers */
 
-.item {
+/* .item {
   border: 1px dotted var(--layout-guide-item);
 }
-
 .content {
   border: 1px dotted var(--layout-guide-content);
 }
 
 .card-content {
   border: 1px solid var(--layout-guide-content);
-}
+} */
 
 /* end design helpers */
 
 .container {
   width: 100%;
-  display: flex;
-  background-color: aqua;
+  margin: 0 auto;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  gap: 14%;
 }
 
 .item {
   box-sizing: border-box;
   flex-grow: 0;
   flex-basis: 100%;
+  color: white;
+}
+
+.showAnimation {
+  animation: scroll 1s ease infinite;
+  position: relative;
+  overflow: hidden;
+  /*TODO: mask the animation*/
+}
+/* .animationBlock {
+  position: relative;
+  overflow: hidden;
+} */
+
+.animationDelay {
+  animation-delay: 1s;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(calc(0%));
+  }
+
+  100% {
+    transform: translateY(calc(-100%));
+  }
 }
 
 .content {
@@ -48,7 +74,6 @@
 }
 
 .action {
-  /* center the button on action's rows*/
   position: fixed;
   left: 0;
   bottom: 0;
@@ -64,20 +89,21 @@
   bottom: 45%;
 }
 .item.students {
-  flex-basis: 50%;
+  flex-basis: 43%;
 }
 
 .group-title {
-  font-size: 12px;
+  font-size: 18px;
   font-family: "Noto Sans", sans-serif;
 }
 
 .current-team-member {
-  color: blueviolet;
+  color: black;
 }
 
 .assigned-student {
-  color: gainsboro;
+  opacity: 30%;
+  text-decoration: line-through;
 }
 
 .hide {
@@ -85,14 +111,25 @@
 }
 
 .team {
-  background-color: azure;
   margin-bottom: 24px;
+  display: block;
 }
 
 .concept {
-  font-weight: 700;
+  margin-top: 10%;
 }
 
+.concept span {
+  color: black;
+}
+
+.team-info {
+  color: black;
+  font-size: 24px;
+}
+.team-info span {
+  color: white;
+}
 /* adjustments for medium screens, like some tablets or landscape on a mobile */
 @media (min-width: 576px) {
 }
@@ -102,18 +139,19 @@
 }
 
 /* adjustments for large screens, like laptops and desktops */
-/* @media (min-width: 992px) {
+@media (min-width: 992px) {
   .container {
     width: 992px;
-    margin: 0 auto;
+    margin: 50px auto;
   }
-} */
+}
 
 body {
   font-family: var(--font-family);
   margin: 0;
   padding: 0;
   color: var(--charcoal);
+  background-color: white;
 }
 
 button {
