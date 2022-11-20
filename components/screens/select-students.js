@@ -22,6 +22,7 @@ export default function Students({
     setIsRunning(true);
     setTimeout(() => {
       // TODO: Animation logic
+
       console.log("Do our animation ...");
 
       setIsRunning(false);
@@ -52,16 +53,19 @@ export default function Students({
         assignedStudents={assignedStudents}
         showAnimation={isRunning}
       />
-      {isRunning && (
-        <StudentList
-          groups={data.groups}
-          students={data.students}
-          currentTeamMembers={currentTeamMembers}
-          assignedStudents={assignedStudents}
-          isReplica={true}
-          showAnimation={isRunning}
-        />
-      )}
+      {
+        // Duplicate of the list for creating "loop" effect in the animation
+        isRunning && (
+          <StudentList
+            groups={data.groups}
+            students={data.students}
+            currentTeamMembers={currentTeamMembers}
+            assignedStudents={assignedStudents}
+            isReplica={true}
+            showAnimation={isRunning}
+          />
+        )
+      }
 
       <SessionAction
         handler={actionHandler}

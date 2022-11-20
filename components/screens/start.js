@@ -10,6 +10,9 @@ export default function Start({
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
   }
+  // reset start screen to white on every session
+  let body = document.querySelector("body");
+  body.style.setProperty("background-color", "white");
 
   return (
     <SessionAction

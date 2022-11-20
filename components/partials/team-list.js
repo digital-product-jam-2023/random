@@ -7,7 +7,7 @@ export default function TeamList({ teams, students, groups }) {
     <>
       {teams.map((team, idx) => {
         return (
-          <div key={idx} className="team">
+          <div key={idx} className="team show-team">
             <p className="team-info">
               {students
                 .filter((s) => team.students.includes(s.id))

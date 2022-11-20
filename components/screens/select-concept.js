@@ -20,6 +20,7 @@ export default function SelectConcept({
   const nextState = isLastTeam ? 4 : stateDescriptor.next;
 
   function actionHandler() {
+    // animation of slot machine goes also here
     setTeams([...teams, { students: currentTeamMembers, concept }]);
     setAssignedStudents([...assignedStudents, ...currentTeamMembers]);
     setCurrentTeamMembers([]);

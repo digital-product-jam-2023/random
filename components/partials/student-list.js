@@ -7,19 +7,22 @@ export default function StudentList({
   isReplica = false,
 }) {
   const currentTeamSelected = currentTeamMembers.length > 0;
-  console.log(isReplica);
   return (
     <div className="row">
       {groups.map((group) => {
         return (
           <div key={group.id} className="item students">
             {!isReplica && (
-              <h1 className="content group-title">{group.name}</h1>
+              <h1
+                className={`content group-title ${showAnimation ? "hide" : ""}`} //hide group titles if animation is running to prevent overlay
+              >
+                {group.name}
+              </h1>
             )}
-            <div className="animationBlock">
+            <div className="animation-block">
               <div
-                className={`row ${showAnimation ? "showAnimation" : ""} ${
-                  isReplica ? "animationDelay" : ""
+                className={`row ${showAnimation ? "show-animation" : ""} ${
+                  isReplica ? "animation-delay" : ""
                 }`}
               >
                 {students
