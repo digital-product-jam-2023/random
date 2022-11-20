@@ -35,7 +35,7 @@ export const STATE_DESCRIPTORS = [
       text: "Next Team",
       disabled: false,
     },
-    next: 4, // TODO: should be 1, but easy to develop with 4
+    next: 1,
   },
   {
     action: {

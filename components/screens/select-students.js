@@ -25,10 +25,19 @@ export default function Students({
       console.log("Do our animation ...");
 
       setIsRunning(false);
-      setCurrentTeamMembers(selectStudents(data.students, assignedStudents));
+      const teamDistribution = data.distribution[teams.length];
+      setCurrentTeamMembers(
+        selectStudents(data.students, assignedStudents, teamDistribution)
+      );
       setActionDisabled(false);
-    }, 5000);
-  }, [data.students, assignedStudents, setCurrentTeamMembers]);
+    }, 3000);
+  }, [
+    data.students,
+    data.distribution,
+    assignedStudents,
+    teams,
+    setCurrentTeamMembers,
+  ]);
 
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
