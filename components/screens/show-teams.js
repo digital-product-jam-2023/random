@@ -7,8 +7,11 @@ export default function ShowTeams({
   teams,
   stateDescriptor,
   transitionToStateFn,
+  setAssignedStudents,
 }) {
+
   function actionHandler() {
+    setAssignedStudents([]);
     transitionToStateFn(stateDescriptor.next);
   }
 
@@ -20,6 +23,7 @@ export default function ShowTeams({
         id={stateDescriptor.action.id}
         text={stateDescriptor.action.text}
         disabled={stateDescriptor.action.disabled}
+        cycleBackground={stateDescriptor.cycleBackground}
       />
     </>
   );

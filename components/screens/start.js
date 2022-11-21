@@ -7,12 +7,10 @@ export default function Start({
   stateDescriptor,
   transitionToStateFn,
 }) {
+
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
   }
-  // reset start screen to white on every session
-  let body = document.querySelector("body");
-  body.style.setProperty("background-color", "white");
 
   return (
     <SessionAction
@@ -20,6 +18,7 @@ export default function Start({
       id={stateDescriptor.action.id}
       text={stateDescriptor.action.text}
       disabled={stateDescriptor.action.disabled}
+      cycleBackground={stateDescriptor.cycleBackground}
     />
   );
 }

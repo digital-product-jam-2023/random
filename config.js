@@ -4,13 +4,33 @@ export const API_BASE = "/api";
 export const API_DATA_ENDPOINT = `${API_BASE}/data`;
 export const API_SESSIONS_ENDPOINT = `${API_BASE}/sessions`;
 export const API_TEAMS_ENDPOINT = `${API_BASE}/teams`;
+export const DEFAULT_BACKGROUND_COLOR = "#FFFFFF";
+export const BACKGROUND_COLORS = [
+  "#8D8D93",
+  "#0028B6",
+  "#DB6E4C",
+  "#AFDB00",
+  "#616A3D",
+  "#8654D7",
+  "#7688C8",
+  "#74AB73",
+  "#EAAB31",
+  "#E86216",
+  "#C28563",
+  "#FF8896",
+  "#51CDDE",
+  "#00442F",
+  "#A83434",
+  "#BEB063",
+];
 export const STATE_DESCRIPTORS = [
   {
     action: {
-      id: "Show-students",
+      id: "show-students",
       text: "Load Students",
       disabled: false,
     },
+    cycleBackground: true,
     next: 1,
   },
   {
@@ -19,6 +39,7 @@ export const STATE_DESCRIPTORS = [
       text: "Select Students",
       disabled: false,
     },
+    cycleBackground: true,
     next: 2,
   },
   {
@@ -27,6 +48,7 @@ export const STATE_DESCRIPTORS = [
       text: "Select Concept",
       disabled: true,
     },
+    cycleBackground: true,
     next: 3,
   },
   {
@@ -35,6 +57,7 @@ export const STATE_DESCRIPTORS = [
       text: "Next Team",
       disabled: false,
     },
+    cycleBackground: true,
     next: 1,
   },
   {
@@ -43,6 +66,9 @@ export const STATE_DESCRIPTORS = [
       text: "Good Luck",
       disabled: false,
     },
+    cycleBackground: false,
     next: 0,
   },
 ];
+export const FINAL_STATE_NEXT = 4;
+export const FINAL_STATE_ACTION_TEXT = "Show Teams";

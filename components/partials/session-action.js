@@ -1,34 +1,24 @@
-let count = 0;
-const colors = [
-  "#8D8D93",
-  "#0028B6",
-  "#DB6E4C",
-  "#AFDB00",
-  "#616A3D",
-  "#8654D7",
-  "#7688C8",
-  "#74AB73",
-  "#EAAB31",
-  "#E86216",
-  "#C28563",
-  "#FF8896",
-  "#51CDDE",
-  "#00442F",
-  "#A83434",
-  "#BEB063",
-];
-export default function SessionAction({ id, text, handler, disabled }) {
+import { BACKGROUND_COLORS, DEFAULT_BACKGROUND_COLOR } from "../../config";
+import { selectBackGroundColor } from "../../helpers";
+
+function setBackgroundColor(cycleBackground) {
+  const target = document.querySelector("body");
+  const color = cycleBackground ? selectBackGroundColor(BACKGROUND_COLORS): DEFAULT_BACKGROUND_COLOR;
+  target.style.setProperty("background-color", color);
+}
+
+export default function SessionAction({ id, text, handler, disabled, cycleBackground }) {
   const buttonText = disabled ? "Wait ..." : text;
-  function handlerWrapper(event) {
+
+  function actionHandler(event) {
     event.preventDefault();
-    count++;
-    let body = document.querySelector("body");
-    body.style.setProperty("background-color", colors[count % colors.length]);
+    setBackgroundColor(cycleBackground);
     handler(event);
   }
+
   return (
     <div className="action" id={id}>
-      <button id={id} onClick={handlerWrapper} disabled={disabled}>
+      <button id={id} onClick={actionHandler} disabled={disabled}>
         {buttonText}
       </button>
     </div>

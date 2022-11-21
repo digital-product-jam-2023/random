@@ -10,6 +10,7 @@ export default function ShowStudents({
   stateDescriptor,
   transitionToStateFn,
 }) {
+
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
   }
@@ -28,6 +29,7 @@ export default function ShowStudents({
         id={stateDescriptor.action.id}
         text={stateDescriptor.action.text}
         disabled={stateDescriptor.action.disabled}
+        cycleBackground={stateDescriptor.cycleBackground}
       />
     </>
   );

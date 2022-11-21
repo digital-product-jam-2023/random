@@ -13,32 +13,21 @@ export default function Students({
   currentTeamMembers,
   setCurrentTeamMembers,
 }) {
-  const [actionDisabled, setActionDisabled] = useState(
-    stateDescriptor.action.disabled
-  );
-  const [isRunning, setIsRunning] = useState(false);
+
+  const [actionDisabled, setActionDisabled] = useState(stateDescriptor.action.disabled);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    setIsRunning(true);
+    setAnimate(true);
     setTimeout(() => {
-      // TODO: Animation logic
-
-      console.log("Do our animation ...");
-
-      setIsRunning(false);
+      setAnimate(false);
       const teamDistribution = data.distribution[teams.length];
       setCurrentTeamMembers(
         selectStudents(data.students, assignedStudents, teamDistribution)
       );
       setActionDisabled(false);
-    }, 3000);
-  }, [
-    data.students,
-    data.distribution,
-    assignedStudents,
-    teams,
-    setCurrentTeamMembers,
-  ]);
+    }, 2000);
+  }, [data.students, data.distribution, assignedStudents, teams, setCurrentTeamMembers]);
 
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
@@ -51,27 +40,14 @@ export default function Students({
         students={data.students}
         currentTeamMembers={currentTeamMembers}
         assignedStudents={assignedStudents}
-        showAnimation={isRunning}
+        animate={animate}
       />
-      {
-        // Duplicate of the list for creating "loop" effect in the animation
-        isRunning && (
-          <StudentList
-            groups={data.groups}
-            students={data.students}
-            currentTeamMembers={currentTeamMembers}
-            assignedStudents={assignedStudents}
-            isReplica={true}
-            showAnimation={isRunning}
-          />
-        )
-      }
-
       <SessionAction
         handler={actionHandler}
         id={stateDescriptor.action.id}
         text={stateDescriptor.action.text}
         disabled={actionDisabled}
+        cycleBackground={stateDescriptor.cycleBackground}
       />
     </>
   );
