@@ -118,10 +118,12 @@
 }
 
 /* adjustments for medium screens, like some tablets or landscape on a mobile */
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+}
 
 /* adjustments for medium-large screens, like some tablets */
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+}
 
 /* adjustments for large screens, like laptops and desktops */
 @media (min-width: 992px) {
@@ -137,6 +139,31 @@ body {
   padding: 0;
   color: var(--charcoal);
   background-color: white;
+}
+
+.animated-body {
+  animation: changeBg 2s ease-in-out;
+}
+
+@keyframes changeBg {
+  0% {
+    background-color: #8d8d93;
+  }
+  20% {
+    background-color: #51cdde;
+  }
+  40% {
+    background-color: #ff8896;
+  }
+  60% {
+    background-color: #afdb00;
+  }
+  80% {
+    background-color: #8654d7;
+  }
+  100% {
+    background-color: #74ab73;
+  }
 }
 
 button {
