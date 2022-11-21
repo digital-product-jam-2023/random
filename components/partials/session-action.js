@@ -1,12 +1,26 @@
-export default function SessionAction({ id, text, handler, disabled }) {
+import { BACKGROUND_COLORS, DEFAULT_BACKGROUND_COLOR } from "../../config";
+import { selectBackGroundColor } from "../../helpers";
+
+function setBackgroundColor(cycleBackground) {
+  const target = document.querySelector("body");
+  const color = cycleBackground ? selectBackGroundColor(BACKGROUND_COLORS): DEFAULT_BACKGROUND_COLOR;
+  target.style.setProperty("background-color", color);
+}
+
+export default function SessionAction({ id, text, handler, disabled, cycleBackground }) {
   const buttonText = disabled ? "Wait ..." : text;
+
+  function actionHandler(event) {
+    event.preventDefault();
+    setBackgroundColor(cycleBackground);
+    handler(event);
+  }
+
   return (
-    <div className="row">
-      <div className="item">
-        <div className="content">
-          <button id={id} onClick={handler} disabled={disabled}>{buttonText}</button>
-        </div>
-      </div>
+    <div className="action" id={id}>
+      <button id={id} onClick={actionHandler} disabled={disabled}>
+        {buttonText}
+      </button>
     </div>
-  )
+  );
 }

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Message from "../components/partials/message";
 import { getCurrentComponent } from "../helpers";
@@ -18,5 +17,16 @@ export default function IndexPage() {
   if (dataError) return <Message content="An error occured..." />
   if (!data) return <Message content="No data could be loaded..." />
 
-  return getCurrentComponent(currentStateId, session, data, teams, setTeams, assignedStudents, setAssignedStudents, currentTeamMembers, setCurrentTeamMembers, transitionToStateFn);
+  return getCurrentComponent(
+    currentStateId,
+    session,
+    data,
+    teams,
+    setTeams,
+    assignedStudents,
+    setAssignedStudents,
+    currentTeamMembers,
+    setCurrentTeamMembers,
+    transitionToStateFn
+  );
 }

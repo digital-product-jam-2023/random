@@ -1,29 +1,24 @@
 :root {
-  --font-family: "SF Pro Text",
-    "SF Pro Icons",
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  --font-family: "Noto Serif Hebrew", serif;
   --white: #fbfafa;
   --charcoal: rgb(45, 43, 43);
   --layout-guide-item: rgba(255, 89, 0, 0.975);
   --layout-guide-content: rgb(0, 183, 255);
+  --bg: black;
 }
 
 /* start design helpers */
 
-.item {
+/* .item {
   border: 1px dotted var(--layout-guide-item);
 }
-
 .content {
   border: 1px dotted var(--layout-guide-content);
 }
 
 .card-content {
   border: 1px solid var(--layout-guide-content);
-}
+} */
 
 /* end design helpers */
 
@@ -35,6 +30,7 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+  gap: 14%;
 }
 
 .item {
@@ -48,31 +44,77 @@
   flex-basis: 100%;
   box-sizing: border-box;
   padding: 10px;
+  font-size: 50px;
+  color: white;
+}
+
+.action {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#show-students {
+  bottom: 45%;
 }
 
 .item.students {
-  flex-basis: 50%;
+  flex-basis: 43%;
 }
 
-.current-team-member {
-  color: blueviolet;
+.group-title {
+  font-size: 18px;
+  font-family: "Noto Sans", sans-serif;
 }
 
-.assigned-student {
-  color: gainsboro;
+.current-team-member .content {
+  color: black;
+}
+
+.assigned-student .content {
+  opacity: 30%;
+  text-decoration: line-through;
 }
 
 .hide {
   display: none;
 }
 
-.team {
-  background-color: azure;
-  margin-bottom: 24px;
+.team-show .content {
+  margin-bottom: 70px;
+  display: block;
+  color: black;
+  font-size: 24px;
+}
+
+.team-show .content span {
+  color: white;
 }
 
 .concept {
-  font-weight: 700;
+  margin-top: 7%;
+}
+
+.concept span {
+  color: black;
+}
+
+.animate .content {
+  opacity: 1;
+  animation: fadeOut 2s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(0);
+  }
 }
 
 /* adjustments for medium screens, like some tablets or landscape on a mobile */
@@ -85,9 +127,8 @@
 @media (min-width: 992px) {
   .container {
     width: 992px;
-    margin: 0 auto;
+    margin: 50px auto;
   }
-
 }
 
 body {
@@ -95,4 +136,19 @@ body {
   margin: 0;
   padding: 0;
   color: var(--charcoal);
+  background-color: white;
+}
+
+button {
+  color: black;
+  background-color: white;
+  padding: 18px 54px;
+  border: 2px solid;
+  border-radius: 86px;
+  font-family: "Noto Serif Hebrew", serif;
+}
+
+button:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
 }

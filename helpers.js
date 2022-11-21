@@ -1,18 +1,23 @@
+import Message from "./components/partials/message";
 import SelectConcept from "./components/screens/select-concept";
 import SelectStudents from "./components/screens/select-students";
 import ShowStudents from "./components/screens/show-students";
 import ShowTeams from "./components/screens/show-teams";
 import Start from "./components/screens/start";
-import { STATE_DESCRIPTORS } from "./config";
+import { BACKGROUND_COLORS, STATE_DESCRIPTORS } from "./config";
 
-// https://sebhastian.com/fisher-yates-shuffle-javascript/
 function shuffle(arr) {
+  // https://sebhastian.com/fisher-yates-shuffle-javascript/
   let i = arr.length;
   while (--i > 0) {
     let randIndex = Math.floor(Math.random() * (i + 1));
     [arr[randIndex], arr[i]] = [arr[i], arr[randIndex]];
   }
   return arr;
+}
+
+export function selectBackGroundColor() {
+  return shuffle(BACKGROUND_COLORS).pop();
 }
 
 export function makeTeamDistribution(developerCount, designerCount) {
@@ -62,28 +67,97 @@ function groupStudentIds(students) {
 
 export function selectStudents(students, assignedStudents, teamDistribution) {
   const groupedStudentIds = groupStudentIds(students);
-  return [...selectDevelopers(groupedStudentIds.get(1), teamDistribution.developerCount, assignedStudents), ...selectDesigners(groupedStudentIds.get(2), teamDistribution.designerCount, assignedStudents)]
+  return [
+    ...selectDevelopers(groupedStudentIds.get(1), teamDistribution.developerCount, assignedStudents),
+    ...selectDesigners(groupedStudentIds.get(2), teamDistribution.designerCount, assignedStudents)
+  ];
 }
 
-export function getCurrentComponent(currentStateId, session, data, teams, setTeams, assignedStudents, setAssignedStudents, currentTeamMembers, setCurrentTeamMembers, transitionToStateFn) {
+export function getCurrentComponent(
+  currentStateId,
+  session,
+  data,
+  teams,
+  setTeams,
+  assignedStudents,
+  setAssignedStudents,
+  currentTeamMembers,
+  setCurrentTeamMembers,
+  transitionToStateFn
+) {
 
   const stateDescriptor = STATE_DESCRIPTORS[currentStateId];
 
   switch (currentStateId) {
     case 0: {
-      return <Start session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />;
+      return <Start
+        session={session}
+        data={data}
+        teams={teams}
+        setTeams={setTeams}
+        assignedStudents={assignedStudents}
+        setAssignedStudents={setAssignedStudents}
+        currentTeamMembers={currentTeamMembers}
+        setCurrentTeamMembers={setCurrentTeamMembers}
+        stateDescriptor={stateDescriptor}
+        transitionToStateFn={transitionToStateFn}
+      />;
     }
     case 1: {
-      return <ShowStudents session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <ShowStudents
+        session={session}
+        data={data}
+        teams={teams}
+        setTeams={setTeams}
+        assignedStudents={assignedStudents}
+        setAssignedStudents={setAssignedStudents}
+        currentTeamMembers={currentTeamMembers}
+        setCurrentTeamMembers={setCurrentTeamMembers}
+        stateDescriptor={stateDescriptor}
+        transitionToStateFn={transitionToStateFn}
+      />
     }
     case 2: {
-      return <SelectStudents session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <SelectStudents
+        session={session}
+        data={data}
+        teams={teams}
+        setTeams={setTeams}
+        assignedStudents={assignedStudents}
+        setAssignedStudents={setAssignedStudents}
+        currentTeamMembers={currentTeamMembers}
+        setCurrentTeamMembers={setCurrentTeamMembers}
+        stateDescriptor={stateDescriptor}
+        transitionToStateFn={transitionToStateFn}
+      />
     }
     case 3: {
-      return <SelectConcept session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <SelectConcept
+        session={session}
+        data={data}
+        teams={teams}
+        setTeams={setTeams}
+        assignedStudents={assignedStudents}
+        setAssignedStudents={setAssignedStudents}
+        currentTeamMembers={currentTeamMembers}
+        setCurrentTeamMembers={setCurrentTeamMembers}
+        stateDescriptor={stateDescriptor}
+        transitionToStateFn={transitionToStateFn}
+      />
     }
     case 4: {
-      return <ShowTeams session={session} data={data} teams={teams} setTeams={setTeams} assignedStudents={assignedStudents} setAssignedStudents={setAssignedStudents} currentTeamMembers={currentTeamMembers} setCurrentTeamMembers={setCurrentTeamMembers} stateDescriptor={stateDescriptor} transitionToStateFn={transitionToStateFn} />
+      return <ShowTeams
+        session={session}
+        data={data}
+        teams={teams}
+        setTeams={setTeams}
+        assignedStudents={assignedStudents}
+        setAssignedStudents={setAssignedStudents}
+        currentTeamMembers={currentTeamMembers}
+        setCurrentTeamMembers={setCurrentTeamMembers}
+        stateDescriptor={stateDescriptor}
+        transitionToStateFn={transitionToStateFn}
+      />
     }
     default: {
       return <Message content="Something went wrong. Reload the application to start again." />;
