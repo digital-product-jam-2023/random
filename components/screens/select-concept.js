@@ -52,18 +52,18 @@ export default function SelectConcept({
           currentConcept={concept}
       />
       <SessionAction
-        handler={actionHandler}
-        id={stateDescriptor.action.id}
-        text={nextText}
-        disabled={stateDescriptor.action.disabled}
-        cycleBackground={stateDescriptor.cycleBackground}
-      />
-      <SessionAction
         handler={rerunConceptHandler}
         id={rerunConceptId}
         text={rerunConceptText}
         disabled={false}
         cycleBackground={null}
+      />
+      <SessionAction
+        handler={actionHandler}
+        id={stateDescriptor.action.id}
+        text={nextText}
+        disabled={stateDescriptor.action.disabled}
+        cycleBackground={stateDescriptor.cycleBackground}
       />
     </Screen>
   );
