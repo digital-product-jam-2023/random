@@ -3,9 +3,9 @@ export default function ConceptSentence({ concept }) {
     <div className="row">
       <div className="item">
         <div className="content concept">
-          Like <span>{concept.name}</span>
+          כמו <span>{concept.name}</span>
           <br />
-          for <span>{concept.idea}</span>
+          אבל עבור <span>{concept.idea}</span>
         </div>
       </div>
     </div>

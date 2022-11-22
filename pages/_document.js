@@ -14,7 +14,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body>
+      <body dir="rtl" lang="he">
         <Main />
         <NextScript />
       </body>

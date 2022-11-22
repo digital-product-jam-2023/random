@@ -12,7 +12,7 @@ export default function TeamList({ teams, students, groups }) {
                 .join(", ")}
             </p>
             <p>
-              <span>Like</span> {team.concept.name} <span>for</span>{" "}
+                <span>כמו</span> {team.concept.name} <span>אבל עבור</span>{" "}
               {team.concept.idea}
             </p>
             </div>

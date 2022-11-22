@@ -1,4 +1,4 @@
-import { BACKGROUND_COLORS, DEFAULT_BACKGROUND_COLOR } from "../../config";
+import { BACKGROUND_COLORS, BUTTON_DISABLED_ACTION_TEXT, DEFAULT_BACKGROUND_COLOR } from "../../config";
 import { selectBackGroundColor } from "../../helpers";
 
 function setBackgroundColor(cycleBackground) {
@@ -8,7 +8,7 @@ function setBackgroundColor(cycleBackground) {
 }
 
 export default function SessionAction({ id, text, handler, disabled, cycleBackground }) {
-  const buttonText = disabled ? "Wait ..." : text;
+  const buttonText = disabled ? BUTTON_DISABLED_ACTION_TEXT : text;
 
   function actionHandler(event) {
     event.preventDefault();

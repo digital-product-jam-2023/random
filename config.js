@@ -27,7 +27,7 @@ export const STATE_DESCRIPTORS = [
   {
     action: {
       id: "show-students",
-      text: "Load Students",
+      text: "טען סטודנטים",
       disabled: false,
     },
     cycleBackground: true,
@@ -36,7 +36,7 @@ export const STATE_DESCRIPTORS = [
   {
     action: {
       id: "select-students",
-      text: "Select Students",
+      text: "צור קבוצה",
       disabled: false,
     },
     cycleBackground: true,
@@ -45,7 +45,7 @@ export const STATE_DESCRIPTORS = [
   {
     action: {
       id: "select-concept",
-      text: "Select Concept",
+      text: "צור משפט",
       disabled: true,
     },
     cycleBackground: true,
@@ -54,7 +54,7 @@ export const STATE_DESCRIPTORS = [
   {
     action: {
       id: "next-team",
-      text: "Next Team",
+      text: "לקבוצה הבאה",
       disabled: false,
     },
     cycleBackground: true,
@@ -63,7 +63,7 @@ export const STATE_DESCRIPTORS = [
   {
     action: {
       id: "final",
-      text: "Good Luck",
+      text: "בהצלחה!",
       disabled: false,
     },
     cycleBackground: false,
@@ -71,4 +71,6 @@ export const STATE_DESCRIPTORS = [
   },
 ];
 export const FINAL_STATE_NEXT = 4;
-export const FINAL_STATE_ACTION_TEXT = "Show Teams";
+export const FINAL_STATE_ACTION_TEXT = "לרשימה המלאה";
+export const RERUN_CONCEPT_ACTION_TEXT = "רוצים שוב";
+export const BUTTON_DISABLED_ACTION_TEXT = "טוען ...";
