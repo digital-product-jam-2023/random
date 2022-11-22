@@ -17,7 +17,7 @@ function shuffle(arr) {
 }
 
 export function selectBackGroundColor() {
-  return shuffle(BACKGROUND_COLORS).pop();
+  return shuffle(BACKGROUND_COLORS).slice(0, 1)[0];
 }
 
 export function makeTeamDistribution(developerCount, designerCount) {
@@ -52,8 +52,8 @@ function selectDevelopers(ids, quantity, assignedStudents) {
 }
 
 export function makeConcept(companies, ideas) {
-  const name = shuffle(companies.map(c => c.name)).pop();
-  const idea = shuffle(ideas.map(i => i.description)).pop();
+  const name = shuffle(companies.map(c => c.name)).slice(0, 1)[0];
+  const idea = shuffle(ideas.map(i => i.description)).slice(0, 1)[0];
   return { name, idea };
 }
 
