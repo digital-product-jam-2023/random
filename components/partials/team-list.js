@@ -3,7 +3,7 @@ export default function TeamList({ teams, students, groups }) {
     <div className="row">
       {teams.map((team, idx) => {
         return (
-          <div key={idx} className="item team-show">
+          <div key={idx} className="item team">
             <div className="content">
             <p>
               {students

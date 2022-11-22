@@ -12,7 +12,7 @@ export default function SessionAction({ id, text, handler, disabled, cycleBackgr
 
   function actionHandler(event) {
     event.preventDefault();
-    setBackgroundColor(cycleBackground);
+    if (cycleBackground !== null) setBackgroundColor(cycleBackground);
     handler(event);
   }
 

@@ -13,12 +13,14 @@ export default function Start({
   }
 
   return (
-    <SessionAction
-      handler={actionHandler}
-      id={stateDescriptor.action.id}
-      text={stateDescriptor.action.text}
-      disabled={stateDescriptor.action.disabled}
-      cycleBackground={stateDescriptor.cycleBackground}
-    />
+    <div id="start">
+      <SessionAction
+        handler={actionHandler}
+        id={stateDescriptor.action.id}
+        text={stateDescriptor.action.text}
+        disabled={stateDescriptor.action.disabled}
+        cycleBackground={stateDescriptor.cycleBackground}
+      />
+    </div>
   );
 }

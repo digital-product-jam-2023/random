@@ -72,5 +72,6 @@ export const STATE_DESCRIPTORS = [
 ];
 export const FINAL_STATE_NEXT = 4;
 export const FINAL_STATE_ACTION_TEXT = "לרשימה המלאה";
-export const RERUN_CONCEPT_ACTION_TEXT = "רוצים שוב";
 export const BUTTON_DISABLED_ACTION_TEXT = "טוען ...";
+export const RERUN_CONCEPT_ACTION_ID = "rerun-concept";
+export const RERUN_CONCEPT_ACTION_TEXT = "רוצים שוב";

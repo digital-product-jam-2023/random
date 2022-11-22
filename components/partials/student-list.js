@@ -1,13 +1,17 @@
+import ConceptSentence from "../partials/concept-sentence";
+
 export default function StudentList({
   groups,
   students,
   currentTeamMembers,
   assignedStudents,
-  animate
+  animate,
+  currentConcept,
 }) {
   const currentTeamSelected = currentTeamMembers.length > 0;
   const rowClassName = animate? "row animate": "row";
   return (
+    <>
     <div className="row">
       {groups.map((group) => {
         return (
@@ -35,5 +39,7 @@ export default function StudentList({
         );
       })}
     </div>
+      {currentConcept ? <ConceptSentence concept={currentConcept} /> : null}
+    </>
   );
 }

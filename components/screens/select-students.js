@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { selectStudents } from "../../helpers";
 import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
+import Screen from "../screens/screen-layout";
 
 export default function Students({
   session,
@@ -34,7 +35,7 @@ export default function Students({
   }
 
   return (
-    <>
+    <Screen>
       <StudentList
         groups={data.groups}
         students={data.students}
@@ -49,6 +50,6 @@ export default function Students({
         disabled={actionDisabled}
         cycleBackground={stateDescriptor.cycleBackground}
       />
-    </>
+    </Screen>
   );
 }

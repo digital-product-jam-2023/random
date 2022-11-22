@@ -1,5 +1,6 @@
 import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
+import Screen from "../screens/screen-layout";
 
 export default function ShowStudents({
   session,
@@ -16,14 +17,13 @@ export default function ShowStudents({
   }
 
   return (
-    <>
+    <Screen>
       <StudentList
         groups={data.groups}
         students={data.students}
         currentTeamMembers={currentTeamMembers}
         assignedStudents={assignedStudents}
       />
-
       <SessionAction
         handler={actionHandler}
         id={stateDescriptor.action.id}
@@ -31,6 +31,6 @@ export default function ShowStudents({
         disabled={stateDescriptor.action.disabled}
         cycleBackground={stateDescriptor.cycleBackground}
       />
-    </>
+    </Screen>
   );
 }

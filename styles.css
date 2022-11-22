@@ -1,26 +1,14 @@
 :root {
-  --font-family: "Noto Serif Hebrew", serif;
-  --white: #fbfafa;
+  --font-family-serif: "Noto Serif Hebrew", serif;
+  --font-family-sans: "Noto Sans Hebrew", "Helvetica", "Arial", sans-serif;
+  --font-base: 16px;
+  --white: rgb(255, 255, 255);
   --charcoal: rgb(45, 43, 43);
   --layout-guide-item: rgba(255, 89, 0, 0.975);
   --layout-guide-content: rgb(0, 183, 255);
   --bg: black;
+  --actions-height: 150px;
 }
-
-/* start design helpers */
-
-/* .item {
-  border: 1px dotted var(--layout-guide-item);
-}
-.content {
-  border: 1px dotted var(--layout-guide-content);
-}
-
-.card-content {
-  border: 1px solid var(--layout-guide-content);
-} */
-
-/* end design helpers */
 
 .container {
   width: 100%;
@@ -44,20 +32,84 @@
   flex-basis: 100%;
   box-sizing: border-box;
   padding: 10px;
-  font-size: 50px;
+  font-size: 3rem;
   color: white;
 }
 
-.action {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+/* adjustments for medium screens, like some tablets or landscape on a mobile */
+@media (min-width: 576px) {}
+
+/* adjustments for medium-large screens, like some tablets */
+@media (min-width: 768px) {}
+
+/* adjustments for large screens, like laptops and desktops */
+@media (min-width: 992px) {
+  .container {
+    width: 992px;
+    margin: 0 auto;
+  }
+}
+
+body {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-base);
+  margin: 0;
+  padding: 0;
+  color: var(--charcoal);
   background-color: white;
-  height: 15%;
+}
+
+#data {
+  min-height: calc(100vh - var(--actions-height));
+}
+
+#data-pad {
+  height: var(--actions-height);
+}
+
+#actions {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: var(--actions-height);
+  width: 100%;
+  background-color: var(--white);
+}
+
+#action-elements {
+  width: 100%;
+  height: var(--actions-height);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#start {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+button {
+  font-size: 1.25rem;
+  color: black;
+  background-color: white;
+  padding: 0.5rem 3rem;
+  border: 2px solid;
+  border-radius: 86px;
+  font-family: var(--font-family-serif);
+}
+
+button:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 #show-students {
@@ -68,9 +120,15 @@
   flex-basis: 43%;
 }
 
-.group-title {
-  font-size: 18px;
-  font-family: "Noto Sans", sans-serif;
+.content p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+h1.content {
+  font-family: var(--font-family-sans);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .current-team-member .content {
@@ -86,14 +144,14 @@
   display: none;
 }
 
-.team-show .content {
-  margin-bottom: 70px;
+.team .content {
+  padding-bottom: 1rem;
   display: block;
   color: black;
   font-size: 24px;
 }
 
-.team-show .content span {
+.team .content span {
   color: white;
 }
 
@@ -115,40 +173,4 @@
     opacity: 0;
     transform: translateY(0);
   }
-}
-
-/* adjustments for medium screens, like some tablets or landscape on a mobile */
-@media (min-width: 576px) {}
-
-/* adjustments for medium-large screens, like some tablets */
-@media (min-width: 768px) {}
-
-/* adjustments for large screens, like laptops and desktops */
-@media (min-width: 992px) {
-  .container {
-    width: 992px;
-    margin: 50px auto;
-  }
-}
-
-body {
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
-  color: var(--charcoal);
-  background-color: white;
-}
-
-button {
-  color: black;
-  background-color: white;
-  padding: 18px 54px;
-  border: 2px solid;
-  border-radius: 86px;
-  font-family: "Noto Serif Hebrew", serif;
-}
-
-button:hover {
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.4);
 }
