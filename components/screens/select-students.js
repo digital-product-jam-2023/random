@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { STATE_TRANSITION_ANIMATION_DURATION } from "../../config";
 import { selectStudents } from "../../helpers";
 import SessionAction from "../partials/session-action";
 import StudentList from "../partials/student-list";
@@ -27,7 +28,7 @@ export default function Students({
         selectStudents(data.students, assignedStudents, teamDistribution)
       );
       setActionDisabled(false);
-    }, 2000);
+    }, STATE_TRANSITION_ANIMATION_DURATION);
   }, [data.students, data.distribution, assignedStudents, teams, setCurrentTeamMembers]);
 
   function actionHandler() {

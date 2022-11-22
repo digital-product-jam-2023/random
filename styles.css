@@ -163,9 +163,9 @@ h1.content {
   color: black;
 }
 
-.animate .content {
+/* .animate .content {
   opacity: 1;
-  animation: fadeOut 2s ease-out forwards;
+  animation: fadeOut 0.1s linear forwards;
 }
 
 @keyframes fadeOut {
@@ -173,4 +173,4 @@ h1.content {
     opacity: 0;
     transform: translateY(0);
   }
-}
+} */

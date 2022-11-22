@@ -70,6 +70,7 @@ export const STATE_DESCRIPTORS = [
     next: 0,
   },
 ];
+export const STATE_TRANSITION_ANIMATION_DURATION = 1800;
 export const FINAL_STATE_NEXT = 4;
 export const FINAL_STATE_ACTION_TEXT = "לרשימה המלאה";
 export const BUTTON_DISABLED_ACTION_TEXT = "טוען ...";

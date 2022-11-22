@@ -4,7 +4,7 @@ import SelectStudents from "./components/screens/select-students";
 import ShowStudents from "./components/screens/show-students";
 import ShowTeams from "./components/screens/show-teams";
 import Start from "./components/screens/start";
-import { BACKGROUND_COLORS, STATE_DESCRIPTORS } from "./config";
+import { STATE_DESCRIPTORS } from "./config";
 
 function shuffle(arr) {
   // https://sebhastian.com/fisher-yates-shuffle-javascript/
@@ -16,8 +16,12 @@ function shuffle(arr) {
   return arr;
 }
 
-export function selectBackGroundColor() {
-  return shuffle(BACKGROUND_COLORS).slice(0, 1)[0];
+export function selectBackGroundColor(colors) {
+  return shuffle(colors).slice(0, 1)[0];
+}
+
+export function selectTransitionColors(colors) {
+  return shuffle(colors).slice(0, 6);
 }
 
 export function makeTeamDistribution(developerCount, designerCount) {
