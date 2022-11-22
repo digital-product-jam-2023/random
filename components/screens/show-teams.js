@@ -5,6 +5,7 @@ export default function ShowTeams({
   session,
   data,
   teams,
+  setTeams,
   stateDescriptor,
   transitionToStateFn,
   setAssignedStudents,
@@ -12,6 +13,7 @@ export default function ShowTeams({
 
   function actionHandler() {
     setAssignedStudents([]);
+    setTeams([]);
     transitionToStateFn(stateDescriptor.next);
   }
 
